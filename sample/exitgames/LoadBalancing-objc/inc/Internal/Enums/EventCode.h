@@ -1,0 +1,27 @@
+/* Exit Games Photon LoadBalancing - objC Client Lib
+ * Copyright (C) 2004-2013 by Exit Games GmbH. All rights reserved.
+ * http://www.exitgames.com
+ * mailto:developer@exitgames.com
+ */
+
+#ifndef __EVENT_CODE_H
+#define __EVENT_CODE_H
+
+#import "PhotonPeer.h"
+
+namespace LoadBalancing
+{	
+	namespace EventCode
+	{
+		static const nByte JOIN               = EV_RT_JOIN;
+		static const nByte LEAVE              = EV_RT_LEAVE;
+		static const nByte PROPERTIES_CHANGED = EV_RT_PROPERTIES_CHANGED;
+		static const nByte ROOM_LIST          = 230;
+		static const nByte ROOM_LIST_UPDATE   = 229;
+		static const nByte QUEUE_STATE        = 228;
+		static const nByte APP_STATS          = 226;
+		static const nByte AZURE_NODE_INFO    = 210;
+	};
+}
+
+#endif
