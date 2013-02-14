@@ -27,6 +27,7 @@
 	
 	BOOL _isOnTouch;
 	CGPoint _touchPoint;
+	ccTime _sendPointDelayTime,_currentSendPointDelayTime;
 	
 	CCArray *playerSpriteList;
 	

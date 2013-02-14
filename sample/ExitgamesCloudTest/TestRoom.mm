@@ -42,12 +42,15 @@
 	}
 	
 	//add me.
-	me = [TestPlayer spriteWithFile:@"Icon.png"];
+	me = [TestPlayer spriteWithFile:@"Player.png"];
 	[me setPlayerNr:[myPeer_ Number]];
 	[me setColor:ccc3(255, 0, 0)];
 	[me setPosition:ccp(_contentSize.width/2.0f,_contentSize.height/2.0f)];
 	[self addChild:me z:1];
+	[self _sendEvent_position:[me position]];
 	
+	_sendPointDelayTime = 1.0f;
+	_currentSendPointDelayTime = 0.0f;
 	
 	//add simple chat
 	labelChat = [CMMFontUtil labelWithString:@" "];
@@ -95,7 +98,7 @@
 -(void)addPlayerSprite:(int)playerNr_{
 	if([self playerSpriteAtPlayerNr:playerNr_]) return;
 	
-	TestPlayer *player_ = [TestPlayer spriteWithFile:@"Icon.png"];
+	TestPlayer *player_ = [TestPlayer spriteWithFile:@"Player.png"];
 	[player_ setPlayerNr:playerNr_];
 	[player_ setPosition:ccp(_contentSize.width/2.0f,_contentSize.height/2.0f)];
 	[playerSpriteList addObject:player_];
@@ -125,15 +128,22 @@
 }
 
 -(void)update:(ccTime)dt_{
+	_currentSendPointDelayTime += dt_;
+	
 	if(_isOnTouch){
-		
 		CGPoint myPoint_ = [me position];
 		CGPoint targetPoint_ = _touchPoint;
-	
+		
 		myPoint_ = ccpAdd(myPoint_, ccpMult(ccpSub(targetPoint_, myPoint_), dt_*2.0f));
 		[me setPosition:myPoint_];
 		
 		[self _sendEvent_position:myPoint_];
+		_currentSendPointDelayTime = 0.0f;
+	}
+	
+	if(_currentSendPointDelayTime > _sendPointDelayTime){
+		_currentSendPointDelayTime = 0.0f;
+		[self _sendEvent_position:[me position]];
 	}
 }
 
