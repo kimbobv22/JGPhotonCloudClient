@@ -1,6 +1,6 @@
 ##Overview
 
-![Overviw](http://i.imgur.com/wXDruBI.png)
+![Overviw](http://i.imgur.com/2t2uAKO.png)
 
 ##How to use
 
