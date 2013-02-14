@@ -18,3 +18,4 @@
 `JGPhotonCloudClient.h`<br/>
 `JGPhotonCloudClient.mm`<br/>
 6. Add JGPhotonCloudClient to Your project
+7. Set your App Information on `JGPhotonCloudConfig.h`<br/>
