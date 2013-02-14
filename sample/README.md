@@ -1,13 +1,13 @@
 ##Overview
 JGPhotonCloudClient Sample for [CMMSimpleFramework(Cocos2d v2.1-rc0)](https://github.com/kimbobv22/CMMSimpleFramework)
 
-##Classes
+##Screen shot
 
-###TestStarter
+###Starter(Login)
 ![Screen shot](http://i.imgur.com/JZDgPdG.png)
 
-###TestLobby
+###Lobby
 ![Screen shot](http://i.imgur.com/YNuA4Sf.png)
 
-###TestRoom
+###Room
 ![Screen shot](http://i.imgur.com/75AhBNE.png)
