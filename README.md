@@ -1,5 +1,7 @@
 ##Overview
 
+JGPhotonCloudClient is Helper class for [Exitgames Photon Cloud iOS SDK](https://cloud.exitgames.com/)<br/>
+
 ![Overviw](http://i.imgur.com/2t2uAKO.png)
 
 ##How to use
