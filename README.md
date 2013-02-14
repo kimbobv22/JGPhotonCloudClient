@@ -1,5 +1,9 @@
 #Overview
+***
 
 ![Overviw](http://i.imgur.com/wXDruBI.png)
 
-Write soon!
+#How to use
+***
+
+1. signup [Exitgames Photon Cloud](https://cloud.exitgames.com).
