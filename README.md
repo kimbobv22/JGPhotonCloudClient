@@ -1,10 +1,8 @@
-#Overview
-***
+##Overview
 
 ![Overviw](http://i.imgur.com/wXDruBI.png)
 
-#How to use
-***
+##How to use
 
 1. Signup [Exitgames Photon Cloud](https://cloud.exitgames.com)
 2. Choose [the Plan(Pricing)](https://cloud.exitgames.com/Pricing) (Free or Paid)
@@ -19,3 +17,8 @@
 `JGPhotonCloudClient.mm`<br/>
 6. Add JGPhotonCloudClient to Your project
 7. Set your App Information on `JGPhotonCloudConfig.h`<br/>
+`jgVarJGPhotonCloudConfig_appID` - Application ID on Exitgames Photon Cloud<br/>
+`jgVarJGPhotonCloudConfig_version` - Application Version<br/>
+`jgVarJGPhotonCloudConfig_usingTcp` - Whether to use tcp<br/>
+`jgVarJGPhotonCloudConfig_debugLevel` - Debug level<br/>
+`jgVarJGPhotonCloudConfig_serviceTimeInterval` - Communication interval between Exitgames Photon Cloud<br/>
