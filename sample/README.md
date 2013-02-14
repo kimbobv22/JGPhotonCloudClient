@@ -1,4 +1,5 @@
 ##Overview
+![Overview](http://i.imgur.com/7AtzFCk.png)<br/><br/>
 JGPhotonCloudClient Sample for [CMMSimpleFramework(Cocos2d v2.1-rc0)](https://github.com/kimbobv22/CMMSimpleFramework)
 
 ##Screen shot
