@@ -12,6 +12,8 @@
 		E0B9D68C16C8ADDD00627E61 /* TestLobby.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0B9D68B16C8ADDD00627E61 /* TestLobby.mm */; };
 		E0B9D68F16C8B1F600627E61 /* SimplePopup.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0B9D68E16C8B1F600627E61 /* SimplePopup.mm */; };
 		E0B9D69216C8BDCE00627E61 /* TestRoom.mm in Sources */ = {isa = PBXBuildFile; fileRef = E0B9D69116C8BDCE00627E61 /* TestRoom.mm */; };
+		E0EF801816CCAA33006A1E8F /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = E0EF801616CCAA33006A1E8F /* Player.png */; };
+		E0EF801916CCAA33006A1E8F /* Player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0EF801716CCAA33006A1E8F /* Player@2x.png */; };
 		E0F5303516C6077700AA1CE8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F5303416C6077700AA1CE8 /* QuartzCore.framework */; };
 		E0F5303716C6077700AA1CE8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F5303616C6077700AA1CE8 /* OpenGLES.framework */; };
 		E0F5303916C6077700AA1CE8 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F5303816C6077700AA1CE8 /* OpenAL.framework */; };
@@ -275,6 +277,8 @@
 		E0B9D69016C8BDCD00627E61 /* TestRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRoom.h; sourceTree = "<group>"; };
 		E0B9D69116C8BDCE00627E61 /* TestRoom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestRoom.mm; sourceTree = "<group>"; };
 		E0BC1BBB16C7E27F0006D52E /* JGPhotonCloudType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGPhotonCloudType.h; sourceTree = "<group>"; };
+		E0EF801616CCAA33006A1E8F /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Player.png; path = Resources/Player.png; sourceTree = "<group>"; };
+		E0EF801716CCAA33006A1E8F /* Player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Player@2x.png"; path = "Resources/Player@2x.png"; sourceTree = "<group>"; };
 		E0F5303116C6077700AA1CE8 /* ExitgamesCloudTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExitgamesCloudTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F5303416C6077700AA1CE8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E0F5303616C6077700AA1CE8 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -896,6 +900,8 @@
 				E0F5333C16C6077C00AA1CE8 /* barFrame000.plist */,
 				E0F5333E16C6077C00AA1CE8 /* barFrame000-hd.png */,
 				E0F5334016C6077C00AA1CE8 /* barFrame000-hd.plist */,
+				E0EF801616CCAA33006A1E8F /* Player.png */,
+				E0EF801716CCAA33006A1E8F /* Player@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1636,6 +1642,8 @@
 				E0F5333D16C6077C00AA1CE8 /* barFrame000.plist in Resources */,
 				E0F5333F16C6077C00AA1CE8 /* barFrame000-hd.png in Resources */,
 				E0F5334116C6077C00AA1CE8 /* barFrame000-hd.plist in Resources */,
+				E0EF801816CCAA33006A1E8F /* Player.png in Resources */,
+				E0EF801916CCAA33006A1E8F /* Player@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
