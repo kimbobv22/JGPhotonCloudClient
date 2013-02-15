@@ -118,9 +118,23 @@
 
 -(BOOL)leaveRoom;
 
--(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ channelId:(nByte)channelId_;
--(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_;
--(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_;
--(BOOL)sendEventWithEventCode:(nByte)eventCode_;
+-(BOOL)sendEventTo:(int)playerNr_ eventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ channelId:(nByte)channelId_;
+-(BOOL)sendEventTo:(int)playerNr_ eventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_;
+-(BOOL)sendEventTo:(int)playerNr_ eventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_;
+-(BOOL)sendEventTo:(int)playerNr_ eventCode:(nByte)eventCode_;
+
+-(BOOL)sendEventToAllWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ channelId:(nByte)channelId_;
+-(BOOL)sendEventToAllWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_;
+-(BOOL)sendEventToAllWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_;
+-(BOOL)sendEventToAllWithEventCode:(nByte)eventCode_;
+
+@end
+
+@interface JGPhotonCloudClient(Deprecated)
+
+-(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ channelId:(nByte)channelId_ DEPRECATED_ATTRIBUTE;
+-(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ DEPRECATED_ATTRIBUTE;
+-(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ DEPRECATED_ATTRIBUTE;
+-(BOOL)sendEventWithEventCode:(nByte)eventCode_ DEPRECATED_ATTRIBUTE;
 
 @end

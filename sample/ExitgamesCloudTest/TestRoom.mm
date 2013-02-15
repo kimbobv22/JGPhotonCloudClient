@@ -147,15 +147,25 @@
 	}
 }
 
--(void)_sendEvent_position:(CGPoint)point_{
+-(void)_sendEvent_position:(CGPoint)point_ toPlayerNr:(int)toPlayerNr_{
 	NSMutableDictionary *pointDic_ = [NSMutableDictionary dictionary];
 	[pointDic_ setFloatValue:point_.x forKey:@"x"];
 	[pointDic_ setFloatValue:point_.y forKey:@"y"];
-	[[JGPhotonCloudClient defaultClient] sendEventWithEventCode:varTestRoom_eventCode_position parameters:pointDic_ isReliable:NO];
+	
+	if(toPlayerNr_ >= 0){
+		[[JGPhotonCloudClient defaultClient] sendEventTo:toPlayerNr_ eventCode:varTestRoom_eventCode_position parameters:pointDic_ isReliable:NO];
+	}else{
+		[[JGPhotonCloudClient defaultClient] sendEventToAllWithEventCode:varTestRoom_eventCode_position parameters:pointDic_ isReliable:NO];
+	}
+	
+
+}
+-(void)_sendEvent_position:(CGPoint)point_{
+	[self _sendEvent_position:point_ toPlayerNr:-1];
 }
 -(void)_sendEvent_chatMsg:(NSString *)msg_{
 	if([msg_ length] == 0) return;
-	[[JGPhotonCloudClient defaultClient] sendEventWithEventCode:varTestRoom_eventCode_chat parameters:[NSDictionary dictionaryWithObjectsAndKeys:msg_,@"msg", nil]];
+	[[JGPhotonCloudClient defaultClient] sendEventToAllWithEventCode:varTestRoom_eventCode_chat parameters:[NSDictionary dictionaryWithObjectsAndKeys:msg_,@"msg", nil]];
 }
 
 #pragma mark - touch dispatcher
@@ -227,6 +237,7 @@
 	if(playerNr_ == [me playerNr]) return;
 	CCLOG(@"PhotonCloud whenPeerJoinedRoom %d",playerNr_);
 	[self addPlayerSprite:playerNr_];
+	[self _sendEvent_position:[me position] toPlayerNr:playerNr_];
 }
 -(void)jgPhotonCloud:(JGPhotonCloudClient *)client_ player:(int)playerNr_ whenPeerLeavedRoom:(NSString *)roomName_{
 	CCLOG(@"PhotonCloud whenPeerLeavedRoom %d",playerNr_);

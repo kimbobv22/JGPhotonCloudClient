@@ -11,4 +11,4 @@
 #define jgVarJGPhotonCloudConfig_usingTcp true
 #define jgVarJGPhotonCloudConfig_debugLevel DEBUG_LEVEL_OFF
 
-#define jgVarJGPhotonCloudConfig_serviceTimeInterval 1.0f/60.0f
+#define jgVarJGPhotonCloudConfig_serviceTimeInterval 0.1f

@@ -268,18 +268,68 @@ static JGPhotonCloudClient *_sharedJGPhotonCloudClient_ = nil;
 	return [_client opLeaveRoom];
 }
 
--(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ channelId:(nByte)channelId_{
-	return [_client opRaiseEvent:isReliable_ :parameters_ :eventCode_ :channelId_];
+-(BOOL)_sendEventTo:(int *)playerNr_ playerNrCount:(short)playerNrCount_ eventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ channelId:(nByte)channelId_{
+	return [_client opRaiseEvent:isReliable_ :parameters_ :eventCode_ :channelId_ :playerNr_ :playerNrCount_];
 }
--(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_{
-	return [self sendEventWithEventCode:eventCode_ parameters:parameters_ isReliable:isReliable_ channelId:0];
+
+-(BOOL)sendEventTo:(int)playerNr_ eventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ channelId:(nByte)channelId_{
+	int *playerNrs_ = (int *)malloc(sizeof(int));
+	playerNrs_[0] = playerNr_;	
+	BOOL result_ = [self _sendEventTo:playerNrs_ playerNrCount:1 eventCode:eventCode_ parameters:parameters_ isReliable:isReliable_ channelId:channelId_];
+	free(playerNrs_);
+	
+	return result_;
 }
--(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_{
-	return [self sendEventWithEventCode:eventCode_ parameters:parameters_ isReliable:YES];
+-(BOOL)sendEventTo:(int)playerNr_ eventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_{
+	return [self sendEventTo:playerNr_ eventCode:eventCode_ parameters:parameters_ isReliable:isReliable_ channelId:0];
 }
--(BOOL)sendEventWithEventCode:(nByte)eventCode_{
-	return [self sendEventWithEventCode:eventCode_ parameters:nil];
+-(BOOL)sendEventTo:(int)playerNr_ eventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_{
+	return [self sendEventTo:playerNr_ eventCode:eventCode_ parameters:parameters_ isReliable:YES];
 }
+-(BOOL)sendEventTo:(int)playerNr_ eventCode:(nByte)eventCode_{
+	return [self sendEventTo:playerNr_ eventCode:eventCode_ parameters:nil];
+}
+
+-(BOOL)sendEventToAllWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ channelId:(nByte)channelId_{
+	EGArray *players_ = [[_client CurrentlyJoinedRoom] Players];
+	uint playersCount_ = [players_ count];
+	int *playerNrs_ = (int *)malloc(sizeof(int)*playersCount_);
+	
+	for(uint index_=0;index_<playersCount_;++index_){
+		playerNrs_[index_] = [[players_ objectAtIndex:index_] Number];
+	}
+	BOOL result_ = [self _sendEventTo:playerNrs_ playerNrCount:playersCount_ eventCode:eventCode_ parameters:parameters_ isReliable:isReliable_ channelId:channelId_];
+	free(playerNrs_);
+	
+	return result_;
+}
+-(BOOL)sendEventToAllWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_{
+	return [self sendEventToAllWithEventCode:eventCode_ parameters:parameters_ isReliable:isReliable_ channelId:0];
+}
+-(BOOL)sendEventToAllWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_{
+	return [self sendEventToAllWithEventCode:eventCode_ parameters:parameters_ isReliable:YES];
+}
+-(BOOL)sendEventToAllWithEventCode:(nByte)eventCode_{
+	return [self sendEventToAllWithEventCode:eventCode_ parameters:nil];
+}
+
+
 
 @end
 
+@implementation JGPhotonCloudClient(Deprecated)
+
+-(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_ channelId:(nByte)channelId_{
+	return [self sendEventToAllWithEventCode:eventCode_ parameters:parameters_ isReliable:isReliable_ channelId:channelId_];
+}
+-(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_ isReliable:(BOOL)isReliable_{
+	return [self sendEventToAllWithEventCode:eventCode_ parameters:parameters_ isReliable:isReliable_];
+}
+-(BOOL)sendEventWithEventCode:(nByte)eventCode_ parameters:(NSDictionary *)parameters_{
+	return [self sendEventToAllWithEventCode:eventCode_ parameters:parameters_];
+}
+-(BOOL)sendEventWithEventCode:(nByte)eventCode_{
+	return [self sendEventToAllWithEventCode:eventCode_];
+}
+
+@end
