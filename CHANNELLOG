@@ -1,4 +1,4 @@
-Version 0.2.0 - update yet
+Version 0.2.0 - updated (2013.02.15)
 [NEW] JGPhotonCloudClient - add method can send event to peer individually.
 [FIX] JGPhotonCloudClient - fix method name "sendEventWithEventCode~" to "sendEventToAllWithEventCode".
 
