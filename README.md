@@ -23,3 +23,5 @@ JGPhotonCloudClient is Helper class for [Exitgames Photon Cloud iOS SDK](https:/
 `jgVarJGPhotonCloudConfig_usingTcp` - Whether to use tcp<br/>
 `jgVarJGPhotonCloudConfig_debugLevel` - Debug level<br/>
 `jgVarJGPhotonCloudConfig_serviceTimeInterval` - Communication interval between Exitgames Photon Cloud<br/>
+
+##[CHANNELLOG](https://github.com/kimbobv22/JGPhotonCloudClient/blob/master/CHANNELLOG.md)
