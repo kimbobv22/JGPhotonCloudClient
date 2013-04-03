@@ -198,8 +198,8 @@
 -(void)jgPhotonCloudLeavedRoom:(JGPhotonCloudClient *)client_{
 	CCLOG(@"PhotonCloudLeavedRoom");
 	[[CMMScene sharedScene] openLoadingLayerWithTitle:@"Joining to lobby..."];
-	[client_ joinLobby];
-	//[[CMMScene sharedScene] pushStaticLayerItemAtKey:varTestLobby_staticKey];
+	//[client_ joinLobby];
+	[[CMMScene sharedScene] pushStaticLayerItemAtKey:varTestLobby_staticKey];
 }
 -(void)jgPhotonCloud:(JGPhotonCloudClient *)client_ failedToLeaveRoom:(int)errorCode_ errorString:(NSString *)errorString_{
 	[[CMMScene sharedScene] openPopupAlertWithContent:[NSString stringWithFormat:@"PhotonCloud failedToLeaveRoom [%d] %@",errorCode_,errorString_]];

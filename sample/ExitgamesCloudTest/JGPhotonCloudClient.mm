@@ -137,8 +137,8 @@ static JGPhotonCloudClient *_sharedJGPhotonCloudClient_ = nil;
 }
 
 - (void) joinLobbyReturn{
-	if(!commonDelegate) return;
-	[commonDelegate jgPhotonCloudJoinedLobby:self];
+	if(!lobbyDelegate) return;
+	[lobbyDelegate jgPhotonCloudJoinedLobby:self];
 }
 
 #pragma mark - delegate method(Lobby)
@@ -223,14 +223,14 @@ static JGPhotonCloudClient *_sharedJGPhotonCloudClient_ = nil;
 -(BOOL)connectServer{
 	return [_client connect];
 }
--(BOOL)joinLobby{
-	return [_client opJoinLobby];
-}
 
 @end
 
 @implementation JGPhotonCloudClient(Lobby)
 
+-(BOOL)joinLobby{
+	return [_client opJoinLobby];
+}
 -(BOOL)leaveLobby{
 	return [_client opLeaveLobby];
 }

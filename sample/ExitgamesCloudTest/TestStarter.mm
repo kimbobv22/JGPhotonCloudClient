@@ -56,8 +56,7 @@
 
 -(void)jgPhotonCloudConnected:(JGPhotonCloudClient *)client_{
 	CCLOG(@"PhotonCloudConnected! try to join lobby");
-	[[CMMScene sharedScene] openLoadingLayerWithTitle:@"Joining to lobby..."];
-	[[JGPhotonCloudClient defaultClient] joinLobby];
+	[[CMMScene sharedScene] pushStaticLayerItemAtKey:varTestLobby_staticKey];
 }
 -(void)jgPhotonCloud:(JGPhotonCloudClient *)client_ failedToConnect:(int)errorCode_ errorString:(NSString *)errorString_{
 	[[CMMScene sharedScene] openPopupAlertWithContent:[NSString stringWithFormat:@"failed to connect errorCode : %d\n%@",errorCode_,errorString_]];
@@ -67,12 +66,6 @@
 -(void)jgPhotonCloudDisconnected:(JGPhotonCloudClient *)client_{
 	CCLOG(@"PhotonCloudDisconnected! return to starter");
 	[[CMMScene sharedScene] pushStaticLayerItemAtKey:varTestStarter_staticKey];
-}
-
--(void)jgPhotonCloudJoinedLobby:(JGPhotonCloudClient *)client_{
-	CCLOG(@"PhotonCloudJoinedLobby! go to lobby");
-	[[CMMScene sharedScene] closeLoadingLayer];
-	[[CMMScene sharedScene] pushStaticLayerItemAtKey:varTestLobby_staticKey];
 }
 
 -(void)jgPhotonCloud:(JGPhotonCloudClient *)client_ receivedConnectionError:(int)errorCode_{

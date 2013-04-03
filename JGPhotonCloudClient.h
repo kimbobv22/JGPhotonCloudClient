@@ -25,8 +25,6 @@ typedef ExitGames::Common::DebugLevel::DebugLevel JGPhotonCloudClientDebugLevel;
 
 -(void)jgPhotonCloudDisconnected:(JGPhotonCloudClient *)client_;
 
--(void)jgPhotonCloudJoinedLobby:(JGPhotonCloudClient *)client_;
-
 -(void)jgPhotonCloud:(JGPhotonCloudClient *)client_ receivedConnectionError:(int)errorCode_;
 -(void)jgPhotonCloud:(JGPhotonCloudClient *)client_ errorReturn:(JGPhotonCloudErrorType::Type)errorType_ code:(int)code_;
 
@@ -39,6 +37,7 @@ typedef ExitGames::Common::DebugLevel::DebugLevel JGPhotonCloudClientDebugLevel;
 
 @protocol JGPhotonCloudLobbyDelegate <NSObject>
 
+-(void)jgPhotonCloudJoinedLobby:(JGPhotonCloudClient *)client_;
 -(void)jgPhotonCloudLeavedLobby:(JGPhotonCloudClient *)client_;
 
 -(void)jgPhotonCloud:(JGPhotonCloudClient *)client_ player:(int)playerNr_ joinedRoom:(NSString *)roomName_;
@@ -93,12 +92,12 @@ typedef ExitGames::Common::DebugLevel::DebugLevel JGPhotonCloudClientDebugLevel;
 @interface JGPhotonCloudClient(Common)
 
 -(BOOL)connectServer;
--(BOOL)joinLobby;
 
 @end
 
 @interface JGPhotonCloudClient(Lobby)
 
+-(BOOL)joinLobby;
 -(BOOL)leaveLobby;
 
 -(BOOL)joinRoomWithRoomName:(NSString *)roomName_;

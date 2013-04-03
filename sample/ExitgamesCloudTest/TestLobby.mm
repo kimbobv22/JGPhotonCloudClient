@@ -44,8 +44,12 @@
 	return self;
 }
 
+-(void)onEnter{
+	[super onEnter];
+	[[CMMScene sharedScene] openLoadingLayerWithTitle:@"Joining to lobby..."];
+}
 -(void)sceneDidEndTransition:(CMMScene *)scene_{
-	[self _loadRoomList];
+	[[JGPhotonCloudClient defaultClient] joinLobby];
 }
 
 -(void)_setUIEnable:(BOOL)bool_{
@@ -92,6 +96,11 @@
 	[[JGPhotonCloudClient defaultClient] joinRoomWithRoomName:roomId_];
 }
 
+-(void)jgPhotonCloudJoinedLobby:(JGPhotonCloudClient *)client_{
+	CCLOG(@"PhotonCloudJoinedLobby!");
+	[[CMMScene sharedScene] closeLoadingLayer];
+	[self _loadRoomList];
+}
 -(void)jgPhotonCloudLeavedLobby:(JGPhotonCloudClient *)client_{
 	CCLOG(@"PhotonCloudLeavedLobby!!");
 	[self _setUIEnable:NO];

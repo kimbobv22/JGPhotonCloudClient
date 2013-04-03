@@ -9,7 +9,7 @@
 #ifndef ExitgamesCloudTest_JGPhotonCloudType_h
 #define ExitgamesCloudTest_JGPhotonCloudType_h
 
-#define JGPhotonCloudClientVersion 0x00000200 //0.2.0
+#define JGPhotonCloudClientVersion 0x00000300 //0.3.0
 
 #import "EGLoadBalancingClient.h"
 #import "EGLoadBalancingPeer.h"
